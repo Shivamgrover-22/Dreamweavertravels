@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Header and logo */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    padding: 18px 0 0 0;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #2596be;
+    margin-bottom: 8px;
+    padding-left: 18px;
+}
+
+/* Menu grid container */
+.logo-menu-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 8px;
+}
+
+/* Navbar and menu button */
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.menu-grid-btn {
+    background: none;
+    border: none;
+    font-size: 1.7em;
+    color: #2596be;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+/* Menu grid popup */
+.menu-grid-popup {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(36,142,230,0.12);
+    padding: 14px 0;
+    min-width: 180px;
+    z-index: 100;
+    flex-direction: column;
+    gap: 0;
+}
+nav.show-menu-grid .menu-grid-popup {
+    display: flex;
+}
+.menu-grid-popup a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #2596be;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 1.08em;
+    transition: background 0.18s, color 0.18s;
+    border-radius: 0;
+}
+.menu-grid-popup a:hover,
+.menu-grid-popup a:focus {
+    background: #e6f7ff;
+    color: #248ee6;
+}
+
+/* Customer service and login icons */
+.nav-help-icon, .nav-login-icon {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-help-icon a, .nav-login-icon a {
+    color: #fff;
+    background: #2596be;
+    border-radius: 50%;
+    padding: 8px 12px;
+    font-size: 1.2em;
+    margin-left: 8px;
+    transition: background 0.18s, color 0.18s;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.nav-help-icon a:hover, .nav-login-icon a:hover {
+    background: #248ee6;
+    color: #ffd700;
+}
+
+/* Contact page main section */
+.contact-main {
+    max-width: 480px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+    padding: 32px 28px 24px 28px;
+}
+.contact-section h2 {
+    color: #2596be;
+    margin-bottom: 14px;
+    font-size: 1.3em;
+}
+.contact-details p {
+    color: #35424a;
+    font-size: 1em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-section h3 {
+    color: #248ee6;
+    margin: 18px 0 10px 0;
+    font-size: 1.1em;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #2596be;
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.18s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #248ee6;
+}
+.contact-form button {
+    background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.18s;
+}
+.contact-form button:hover {
+    background: #248ee6;
+}
+
+/* Footer */
+footer {
+    background: #35424a;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0 10px 0;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    margin-top: 32px;
+    border-radius: 0 0 14px 14px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .contact-main {
+        padding: 12px 4vw 12px 4vw;
+        margin: 18px 0 0 0;
+    }
+    .logo {
+        padding-left: 6vw;
+        font-size: 1.1em;
+    }
+    .logo-menu-container {
+        padding-left: 2vw;
+    }
+    .menu-grid-popup {
+        min-width: 140px;
+        left: 0;
+        right: auto;
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+            <span>DreamWeaver Travels</span>
+        </div>
+        <div class="logo-menu-container">
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-grid-popup">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+                <div class="nav-help-icon">
+                    <a href="customer-service.html" title="Customer Service">
+                        <i class="fas fa-headset"></i>
+                    </a>
+                </div>
+                <div class="nav-login-icon">
+                    <a href="login.html" title="Login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="contact-main">
+        <section class="contact-section">
+            <h2>Contact Details</h2>
+            <div class="contact-details">
+                <p><i class="fas fa-map-marker-alt"></i> Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058</p>
+                <p><i class="fas fa-phone"></i> +91 8448665087</p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:info@dreamweavertravels.com" style="color:#2596be;text-decoration:underline;">
+                        info@dreamweavertravels.com
+                    </a>
+                </p>
+                <p><i class="fas fa-globe"></i> www.dreamweavertravels.com</p>
+            </div>
+            <h3>Send Us a Message</h3>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 DreamWeaver Travels. All rights reserved.
+    </footer>
+    <!-- Add this just before </body> to enable menu functionality -->
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector('nav');
+    const menuBtn = document.querySelector('.menu-grid-btn');
+    const menuPopup = document.querySelector('.menu-grid-popup');
+
+    // Open/close menu
+    if (menuBtn && nav && menuPopup) {
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('show-menu-grid');
+        });
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target)) {
+                nav.classList.remove('show-menu-grid');
+            }
+        });
+        // Close menu when any link is clicked
+        menuPopup.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('show-menu-grid');
+            });
+        });
+    }
+});
+</script>
+</body>
+</html>

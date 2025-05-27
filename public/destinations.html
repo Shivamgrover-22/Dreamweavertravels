@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+              <div class="menu-grid-popup">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+</div>
+
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h2 class="destinations-heading">Our Top Destinations</h2>
+        <div class="destinations-list">
+            <div class="destination">
+                <img src="paris.jpg" alt="Paris">
+                <h3>Paris</h3>
+                <p>The city of lights awaits you!</p>
+            </div>
+            <div class="destination">
+                <img src="rome.jpg" alt="Rome">
+                <h3>Rome</h3>
+                <p>Discover ancient history and vibrant culture in Italy's capital.</p>
+            </div>
+            <div class="destination">
+                <img src="tokyo.jpg" alt="Tokyo">
+                <h3>Tokyo</h3>
+                <p>Experience the blend of tradition and technology in Japan's metropolis.</p>
+            </div>
+            <div class="destination">
+                <img src="newyork.jpg" alt="New York">
+                <h3>New York</h3>
+                <p>The city that never sleeps, full of iconic sights and energy.</p>
+            </div>
+            <div class="destination">
+                <img src="sydney.jpg" alt="Sydney">
+                <h3>Sydney</h3>
+                <p>Enjoy the stunning harbor, beaches, and the famous Opera House.</p>
+            </div>
+            <!-- Add more destinations as needed -->
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 DreamWeaver Travels. All rights reserved.
+    </footer>
+   
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector('nav');
+    const menuBtn = document.querySelector('.menu-grid-btn');
+    const menuPopup = document.querySelector('.menu-grid-popup');
+
+    // Open/close menu
+    if (menuBtn && nav && menuPopup) {
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('show-menu-grid');
+        });
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target)) {
+                nav.classList.remove('show-menu-grid');
+            }
+        });
+        // Close menu when any link is clicked
+        menuPopup.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('show-menu-grid');
+            });
+        });
+    }
+});
+</script>
+</body>
+</html>

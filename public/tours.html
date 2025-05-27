@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-grid-popup">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="#"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="tours-main">
+        <section class="tours-section">
+            <h2>Tours</h2>
+            <div class="tours-list">
+                <div class="tour-card">
+                    <img src="maldives.jpg" alt="Maldives">
+                    <h3>Maldives Getaway</h3>
+                    <p>5 Nights / 6 Days<br>Luxury resort stay, water sports, and island tours.</p>
+                    <span class="tour-price">From $999</span>
+                </div>
+                <div class="tour-card">
+                    <img src="Switzerland.jpg" alt="Switzerland">
+                    <h3>Swiss Alps Adventure</h3>
+                    <p>7 Nights / 8 Days<br>Scenic train rides, mountain excursions, and city tours.</p>
+                    <span class="tour-price">From $1499</span>
+                </div>
+                <div class="tour-card">
+                    <img src="bali.jpg" alt="Bali">
+                    <h3>Bali Bliss</h3>
+                    <p>6 Nights / 7 Days<br>Beach resorts, temple visits, and cultural experiences.</p>
+                    <span class="tour-price">From $799</span>
+                </div>
+                <div class="tour-card">
+                    <img src="egypt.jpg" alt="Egypt">
+                    <h3>Egyptian Wonders</h3>
+                    <p>8 Nights / 9 Days<br>Pyramids, Nile cruise, and ancient history tours.</p>
+                    <span class="tour-price">From $1199</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 DreamWeaver Travels. All rights reserved.
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const nav = document.querySelector('nav');
+            const menuBtn = document.querySelector('.menu-grid-btn');
+            const menuPopup = document.querySelector('.menu-grid-popup');
+
+            // Open/close menu
+            if (menuBtn && nav && menuPopup) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nav.classList.toggle('show-menu-grid');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!nav.contains(e.target)) {
+                        nav.classList.remove('show-menu-grid');
+                    }
+                });
+                // Close menu when any link is clicked
+                menuPopup.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('show-menu-grid');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!-- Save this as subscribe.html in your public folder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subscribe for Offers | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .subscribe-container {
+            max-width: 400px;
+            margin: 70px auto 40px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.12);
+            padding: 32px 28px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .subscribe-container .subscribe-icon {
+            font-size: 2.2em;
+            color: #2596be;
+            margin-bottom: 10px;
+        }
+        .subscribe-container h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            font-size: 1.4em;
+        }
+        .subscribe-container p {
+            color: #555;
+            font-size: 1.08em;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .subscribe-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .subscribe-form input[type="email"]:focus {
+            border-color: #248ee6;
+        }
+        .subscribe-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .subscribe-form button:hover {
+            background: #248ee6;
+        }
+        .back-link {
+            margin-top: 18px;
+            text-align: center;
+        }
+        .back-link a {
+            color: #2596be;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.18s;
+        }
+        .back-link a:hover {
+            color: #248ee6;
+            text-decoration: underline;
+        }
+        .subscribe-success {
+            color: #2596be;
+            background: #e6f7ff;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-top: 14px;
+            display: none;
+            font-size: 1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="subscribe-container">
+        <div class="subscribe-icon">
+            <i class="fas fa-envelope-open-text"></i>
+        </div>
+        <h2>Subscribe for Exclusive Offers</h2>
+        <p>Get the latest travel deals, discounts, and updates delivered straight to your inbox!</p>
+        <form class="subscribe-form" id="subscribeForm" action="#" method="post">
+            <input type="email" name="email" placeholder="Enter your email address" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+        </form>
+        <div class="subscribe-success" id="subscribeSuccess">
+            Thank you for subscribing! You'll receive our best offers soon.
+        </div>
+        <div class="back-link">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </div>
+    <script>
+        // Simple JS for demo subscription
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('subscribeSuccess').style.display = 'block';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

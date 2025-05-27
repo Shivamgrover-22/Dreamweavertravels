@@ -1,0 +1,201 @@
+<!-- Save this as testimonials.html in your public folder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testimonials | DreamWeaver Travels</title>
+   
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .testimonials-page-container {
+            max-width: 800px;
+            margin: 40px auto 30px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .testimonials-page-container h2 {
+            color: #2596be;
+            font-size: 2em;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .testimonials-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .testimonial-card {
+            background: #f0faff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(36, 142, 230, 0.08);
+            padding: 18px 18px 14px 18px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 18px;
+        }
+        .testimonial-user img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #2596be;
+            background: #fff;
+            margin-right: 10px;
+        }
+        .testimonial-content {
+            flex: 1;
+        }
+        .testimonial-content p {
+            color: #35424a;
+            font-size: 1.08em;
+            margin-bottom: 6px;
+        }
+        .testimonial-content span {
+            font-weight: bold;
+            color: #2596be;
+            font-size: 1em;
+        }
+        .customer-details small {
+            color: #35424a;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        @media (max-width: 700px) {
+            .testimonials-page-container {
+                padding: 12px 4vw 12px 4vw;
+            }
+            .testimonial-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .testimonial-user img {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonials-page-container">
+        <h2><i class="fas fa-comments"></i> What Our Customers Say</h2>
+        <div class="testimonials-list">
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user1.jpg" alt="User 1">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> DreamWeaver Travels made our honeymoon in Bali unforgettable! The hotel and tours were perfectly arranged.</p>
+                    <span>Priya Sharma</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Mumbai, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Feb 2025<br>
+                            <i class="fas fa-plane"></i> Destination: Bali
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user2.jpg" alt="User 2">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> Excellent visa support and quick responses. Our Switzerland trip was smooth and hassle-free. Highly recommended!</p>
+                    <span>Rahul Mehta</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Delhi, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Jan 2025<br>
+                            <i class="fas fa-plane"></i> Destination: Switzerland
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user3.jpg" alt="User 3">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> Great deals and friendly staff. The group offer saved us a lot on our family holiday to Paris!</p>
+                    <span>Anita Verma</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Jaipur, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Dec 2024<br>
+                            <i class="fas fa-plane"></i> Destination: Paris
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user4.jpg" alt="User 4">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> The Kerala backwaters trip was magical. The houseboat was clean and the food was delicious. Thank you for a memorable experience!</p>
+                    <span>Sunita Rao</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Hyderabad, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Nov 2024<br>
+                            <i class="fas fa-plane"></i> Destination: Kerala
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user5.jpg" alt="User 5">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> Fast booking and great customer support. Our family loved the Goa beach package. Will book again!</p>
+                    <span>Vikram Singh</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Chandigarh, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Oct 2024<br>
+                            <i class="fas fa-plane"></i> Destination: Goa
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user6.jpg" alt="User 6">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> The team arranged a wonderful trip to Singapore for us. The itinerary was perfect and we felt well taken care of throughout.</p>
+                    <span>Megha Patel</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Ahmedabad, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Sep 2024<br>
+                            <i class="fas fa-plane"></i> Destination: Singapore
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-user">
+                    <img src="user7.jpg" alt="User 7">
+                </div>
+                <div class="testimonial-content">
+                    <p><i class="fas fa-quote-left"></i> I was worried about traveling solo, but DreamWeaver made it easy and safe. Loved my Tokyo adventure!</p>
+                    <span>Arjun Desai</span>
+                    <div class="customer-details">
+                        <small>
+                            <i class="fas fa-map-marker-alt"></i> Pune, India<br>
+                            <i class="fas fa-calendar-alt"></i> Traveled: Aug 2024<br>
+                            <i class="fas fa-plane"></i> Destination: Tokyo
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
