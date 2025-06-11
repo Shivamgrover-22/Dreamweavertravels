@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Hotels | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .hotel-booking-main {
+            max-width: 500px;
+            margin: 48px auto 32px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .hotel-booking-main h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .hotel-booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .hotel-booking-form input,
+        .hotel-booking-form select {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .hotel-booking-form input:focus,
+        .hotel-booking-form select:focus {
+            border-color: #248ee6;
+        }
+        .hotel-booking-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .hotel-booking-form button:hover {
+            background: #248ee6;
+        }
+        .hotel-booking-success {
+            color: #2596be;
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+        </div>
+    </header>
+    <main class="hotel-booking-main">
+        <h2><i class="fas fa-hotel"></i> Book Hotels</h2>
+        <form class="hotel-booking-form" id="hotelBookingForm" autocomplete="off">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="city" placeholder="Destination City" required>
+            <input type="date" name="checkin" placeholder="Check-in Date" required>
+            <input type="date" name="checkout" placeholder="Check-out Date" required>
+            <select name="rooms" required>
+                <option value="">Number of Rooms</option>
+                <option>1 Room</option>
+                <option>2 Rooms</option>
+                <option>3 Rooms</option>
+                <option>4 Rooms</option>
+                <option>5 Rooms</option>
+            </select>
+            <select name="guests" required>
+                <option value="">Number of Guests</option>
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+                <option>5+ Guests</option>
+            </select>
+            <button type="submit"><i class="fas fa-bed"></i> Book Hotel</button>
+        </form>
+        <div class="hotel-booking-success" id="hotelBookingSuccess">
+            <i class="fas fa-check-circle"></i> Thank you! Your hotel booking request has been received.
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer>
+        <div style="text-align:center; color:#35424a; padding:16px 0 10px 0; font-size:1em;">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Simple hotel booking form handler (demo)
+        document.getElementById('hotelBookingForm').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('hotelBookingSuccess').style.display = 'block';
+            this.reset();
+        };
+    </script>
+</body>
+</html>

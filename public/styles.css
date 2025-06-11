@@ -1776,3 +1776,120 @@ nav.show-menu-grid .menu-grid-popup {
 .get-updates-form button:hover {
     background: #248ee6;
 }
+
+/* Add to styles.css for footer privacy styling */
+.footer-privacy {
+    text-align: center;
+    margin: 12px 0 0 0;
+    font-size: 1em;
+}
+.footer-privacy a:hover,
+.footer-privacy a:focus {
+    color: #248ee6;
+    text-decoration: underline;
+}
+
+/* Add to styles.css for footer terms styling */
+.footer-terms {
+    text-align: center;
+    margin: 8px 0 0 0;
+    font-size: 1em;
+}
+.footer-terms a:hover,
+.footer-terms a:focus {
+    color: #248ee6;
+    text-decoration: underline;
+}
+
+/* Add to styles.css for footer disclaimer styling */
+.footer-disclaimer {
+    text-align: center;
+    margin: 8px 0 0 0;
+    font-size: 1em;
+}
+.footer-disclaimer a:hover,
+.footer-disclaimer a:focus {
+    color: #248ee6;
+    text-decoration: underline;
+}
+
+/* Add to styles.css for footer cancellation policy styling */
+.footer-cancellation {
+    text-align: center;
+    margin: 8px 0 0 0;
+    font-size: 1em;
+}
+.footer-cancellation a:hover,
+.footer-cancellation a:focus {
+    color: #248ee6;
+    text-decoration: underline;
+}
+
+/* Add to styles.css for flight booking cards layout */
+.flight-booking-section {
+    padding: 36px 0 18px 0;
+    background: #f7fbff;
+    text-align: center;
+}
+.flight-booking-section h2 {
+    color: #2596be;
+    margin-bottom: 24px;
+}
+.flight-booking-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+}
+.flight-booking-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(36,142,230,0.10);
+    padding: 28px 22px 22px 22px;
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.18s;
+}
+.flight-booking-card i {
+    font-size: 2.2em;
+    color: #2596be;
+    margin-bottom: 12px;
+}
+.flight-booking-card h3 {
+    margin: 0 0 10px 0;
+    color: #248ee6;
+}
+.flight-booking-card p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 16px;
+}
+.flight-book-btn {
+    background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.18s;
+    display: inline-block;
+}
+.flight-book-btn:hover {
+    background: #248ee6;
+}
+@media (max-width: 900px) {
+    .flight-booking-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+    .flight-booking-card {
+        width: 90%;
+        max-width: 340px;
+    }
+}

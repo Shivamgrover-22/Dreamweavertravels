@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Flights | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .flight-booking-main {
+            max-width: 700px;
+            margin: 48px auto 32px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .flight-booking-main h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .flight-search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .flight-search-form input,
+        .flight-search-form select {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            min-width: 120px;
+        }
+        .flight-search-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.18s;
+        }
+        .flight-search-form button:hover {
+            background: #248ee6;
+        }
+        .flight-results {
+            margin-top: 18px;
+        }
+        .flight-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f9fcff;
+        }
+        .flight-card .flight-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .flight-card .flight-book-btn {
+            background: #2596be;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.18s;
+        }
+        .flight-card .flight-book-btn:hover {
+            background: #248ee6;
+        }
+        .flight-success {
+            color: #2596be;
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            display: none;
+        }
+        @media (max-width: 800px) {
+            .flight-booking-main {
+                padding: 18px 4vw 18px 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+        </div>
+    </header>
+    <main class="flight-booking-main">
+        <h2><i class="fas fa-plane-departure"></i> Search &amp; Book Flights</h2>
+        <form class="flight-search-form" id="flightSearchForm" autocomplete="off">
+            <input type="text" name="from" placeholder="From (City or Airport)" required>
+            <input type="text" name="to" placeholder="To (City or Airport)" required>
+            <input type="date" name="date" required>
+            <select name="passengers" required>
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+            </select>
+            <button type="submit"><i class="fas fa-search"></i> Search Flights</button>
+        </form>
+        <div class="flight-results" id="flightResults"></div>
+        <div class="flight-success" id="flightSuccess">
+            <i class="fas fa-check-circle"></i> Thank you! Your flight booking request has been received.
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer>
+        <div style="text-align:center; color:#35424a; padding:16px 0 10px 0; font-size:1em;">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Demo flight data
+        const demoFlights = [
+            { airline: "IndiGo", flight: "6E-203", time: "09:00 - 11:30", price: "₹5,499" },
+            { airline: "Air India", flight: "AI-101", time: "13:15 - 15:45", price: "₹6,250" },
+            { airline: "Vistara", flight: "UK-809", time: "18:00 - 20:30", price: "₹6,999" }
+        ];
+
+        document.getElementById('flightSearchForm').onsubmit = function(e) {
+            e.preventDefault();
+            const results = document.getElementById('flightResults');
+            results.innerHTML = '';
+            // In real app, fetch flights based on form data
+            demoFlights.forEach(flight => {
+                const card = document.createElement('div');
+                card.className = 'flight-card';
+                card.innerHTML = `
+                    <div class="flight-info">
+                        <strong>${flight.airline}</strong> <span>${flight.flight}</span>
+                        <span>${flight.time}</span>
+                        <span style="color:#2596be;font-weight:bold;">${flight.price}</span>
+                    </div>
+                    <button class="flight-book-btn"><i class="fas fa-ticket-alt"></i> Book</button>
+                `;
+                card.querySelector('.flight-book-btn').onclick = function() {
+                    document.getElementById('flightSuccess').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('flightSuccess').style.display = 'none';
+                    }, 2500);
+                };
+                results.appendChild(card);
+            });
+        };
+    </script>
+</body>
+</html>

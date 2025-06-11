@@ -77,6 +77,13 @@
             color: #248ee6;
             text-decoration: underline;
         }
+        #registerCaptchaBox {
+            margin: 10px 0;
+        }
+        #registerCaptchaError {
+            color: red;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -85,18 +92,44 @@
             <i class="fas fa-user-plus"></i>
         </div>
         <h2>Create Your Account</h2>
-        <form action="#" method="post">
+        <!-- Example create account form with captcha -->
+        <form id="registerForm" autocomplete="off">
             <input type="text" name="fullname" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Email Address" required>
-            <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <div id="registerCaptchaBox">
+                <span id="registerCaptchaQuestion"></span>
+                <input type="text" id="registerCaptchaAnswer" placeholder="Answer" required style="width:80px;">
+            </div>
             <button type="submit">Create Account</button>
+            <div id="registerCaptchaError">Incorrect captcha. Please try again.</div>
         </form>
         <div class="login-link">
             Already have an account?
             <a href="login.html">Login</a>
         </div>
     </div>
+    <script>
+        // Simple math captcha for register
+        function generateRegisterCaptcha() {
+            const a = Math.floor(Math.random() * 10) + 1;
+            const b = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('registerCaptchaQuestion').textContent = `What is ${a} + ${b}?`;
+            document.getElementById('registerCaptchaBox').dataset.answer = a + b;
+        }
+        generateRegisterCaptcha();
+
+        document.getElementById('registerForm').onsubmit = function(e) {
+            const userAnswer = document.getElementById('registerCaptchaAnswer').value;
+            const correct = document.getElementById('registerCaptchaBox').dataset.answer;
+            if (parseInt(userAnswer) !== parseInt(correct)) {
+                e.preventDefault();
+                document.getElementById('registerCaptchaError').style.display = 'block';
+                generateRegisterCaptcha();
+            } else {
+                document.getElementById('registerCaptchaError').style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Dreamweaverlogo2.png">
+    <!-- Or if using .ico: -->
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
 <body>
     <header id="header">
@@ -85,6 +88,31 @@
             </div>
         </div>
     </main>
+
+    <!-- Flight Booking Section -->
+    <section class="flight-booking-section">
+        <h2>Book Your Flight Tickets</h2>
+        <div class="flight-booking-cards">
+            <div class="flight-booking-card">
+                <i class="fas fa-plane-departure"></i>
+                <h3>Search &amp; Book Flights</h3>
+                <p>Find and book domestic &amp; international flights at the best prices.</p>
+                <a href="flight-booking.html" class="flight-book-btn">Book Flight</a>
+            </div>
+            <div class="flight-booking-card">
+                <i class="fas fa-hotel"></i>
+                <h3>Book Hotels</h3>
+                <p>Choose from a wide range of hotels for your stay.</p>
+                <a href="book-hotels.html" class="flight-book-btn">Book Hotel</a>
+            </div>
+            <div class="flight-booking-card">
+                <i class="fas fa-bus"></i>
+                <h3>Bus Tickets</h3>
+                <p>Book bus tickets for your intercity travel easily.</p>
+                <a href="book-bus.html" class="flight-book-btn">Book Bus</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Airlines Section -->
     <section class="airlines-section">
@@ -350,13 +378,36 @@
                 </ul>
             </div>
         </div>
+        <div class="footer-privacy">
+            <a href="privacy-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Privacy &amp; Policy
+            </a>
+        </div>
+        <!-- Add this section to your footer, just after the Privacy & Policy link and before the copyright/footer-bottom -->
+        <div class="footer-terms">
+            <a href="terms-conditions.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Terms &amp; Conditions
+            </a>
+        </div>
+        <!-- Add this Disclaimer section in your footer, just after the Terms & Conditions link and before the copyright/footer-bottom -->
+        <div class="footer-disclaimer">
+            <a href="disclaimer.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Disclaimer
+            </a>
+        </div>
+        <!-- Add this Cancellation & Payment Policy section in your footer, just after the Disclaimer link and before the copyright/footer-bottom -->
+        <div class="footer-cancellation">
+            <a href="cancellation-payment-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Cancellation &amp; Payment Policy
+            </a>
+        </div>
         <div class="footer-bottom">
             &copy; 2025 DreamWeaver Travels. All rights reserved.
         </div>
     </footer>
     <script>
-        // Minimal JS for menu, contact modal, testimonials, and typewriter
         document.addEventListener("DOMContentLoaded", function() {
+            // Minimal JS for menu, contact modal, testimonials, and typewriter
             const nav = document.querySelector('nav');
             const menuBtn = document.querySelector('.menu-grid-btn');
             const menuPopup = document.querySelector('.menu-grid-popup');
@@ -478,12 +529,12 @@
             showTestimonial(0);
             autoSlide();
 
-            // Book Now button flying plane animation
+            // Book Now button flying plane animation and redirect
             const bookNowBtn = document.getElementById('bookNowBtn');
             const planeIcon = bookNowBtn.querySelector('.plane');
             const btnText = bookNowBtn.querySelector('.btn-text');
             bookNowBtn.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent scroll to destination section
+                // Remove e.preventDefault(); to allow redirect
                 planeIcon.style.display = 'inline-block';
                 btnText.style.visibility = 'hidden';
                 planeIcon.classList.add('fly');
@@ -491,7 +542,8 @@
                     planeIcon.classList.remove('fly');
                     planeIcon.style.display = 'none';
                     btnText.style.visibility = 'visible';
-                }, 3500); // Match animation duration
+                    window.location.href = "booking.html"; // Redirect after animation
+                }, 1200); // Shorten animation for better UX
             });
 
             // Package tabs logic

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Bus Tickets | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .bus-booking-main {
+            max-width: 500px;
+            margin: 48px auto 32px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .bus-booking-main h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .bus-booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .bus-booking-form input,
+        .bus-booking-form select {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .bus-booking-form input:focus,
+        .bus-booking-form select:focus {
+            border-color: #248ee6;
+        }
+        .bus-booking-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .bus-booking-form button:hover {
+            background: #248ee6;
+        }
+        .bus-booking-success {
+            color: #2596be;
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+        </div>
+    </header>
+    <main class="bus-booking-main">
+        <h2><i class="fas fa-bus"></i> Book Bus Tickets</h2>
+        <form class="bus-booking-form" id="busBookingForm" autocomplete="off">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="from" placeholder="From (City)" required>
+            <input type="text" name="to" placeholder="To (City)" required>
+            <input type="date" name="date" required>
+            <select name="seats" required>
+                <option value="">Number of Seats</option>
+                <option>1 Seat</option>
+                <option>2 Seats</option>
+                <option>3 Seats</option>
+                <option>4 Seats</option>
+                <option>5+ Seats</option>
+            </select>
+            <button type="submit"><i class="fas fa-ticket-alt"></i> Book Bus</button>
+        </form>
+        <div class="bus-booking-success" id="busBookingSuccess">
+            <i class="fas fa-check-circle"></i> Thank you! Your bus booking request has been received.
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer>
+        <div style="text-align:center; color:#35424a; padding:16px 0 10px 0; font-size:1em;">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Simple bus booking form handler (demo)
+        document.getElementById('busBookingForm').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('busBookingSuccess').style.display = 'block';
+            this.reset();
+        };
+    </script>
+</body>
+</html>
