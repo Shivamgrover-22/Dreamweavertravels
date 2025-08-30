@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        header {
+            width: 100vw;
+            background: #35424a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+       /* .logo-menu-container {
+            width: 100%;
+            max-width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 24px;
+            background: #35424a;
+            box-sizing: border-box;
+            position: relative;
+        }*/
+
+        .logo span {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-left: 8px;
+        }
+
+        .menu-grid-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 12px;
+        }
+
+        .menu-grid-popup {
+            display: none;
+            position: absolute;
+            top: 48px;
+            right: 0;
+            background: #35424a;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 16px 0;
+            z-index: 1001;
+            min-width: 180px;
+        }
+
+        nav.show-menu-grid .menu-grid-popup {
+            display: block;
+        }
+
+        .menu-grid-popup a {
+            display: block;
+            padding: 10px 24px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .menu-grid-popup a:hover {
+            background: #2596be;
+            color: #fff;
+        }
+
+        .career-container {
+            max-width: 1000px;
+            margin: 80px auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .career-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 10px 20px;
+            background: #f0faff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+        }
+
+        .career-hero h1 {
+            color: #2596be;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .career-hero p {
+            color: #35424a;
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .job-listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .job-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-card h3 {
+            color: #2596be;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .job-card .location {
+            color: #666;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .job-card .description {
+            color: #35424a;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .job-card .requirements {
+            margin-bottom: 20px;
+        }
+
+        .job-card .requirements h4 {
+            color: #2596be;
+            margin-bottom: 8px;
+        }
+
+        .job-card .requirements ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-card .requirements li {
+            color: #35424a;
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-card .requirements li:before {
+            content: "•";
+            color: #2596be;
+            position: absolute;
+            left: 0;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background: #2596be;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background: #1f7a9a;
+        }
+
+        .benefits-section {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .benefits-section h2 {
+            color: #2596be;
+            margin-bottom: 30px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: #f0faff;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .benefit-card i {
+            font-size: 2em;
+            color: #2596be;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card h3 {
+            color: #35424a;
+            margin-bottom: 12px;
+        }
+
+        .benefit-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .career-container {
+                padding: 0 16px;
+            }
+
+            .job-listings {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .career-hero {
+                padding: 30px 15px;
+                margin-bottom: 40px;
+            }
+
+            .career-hero h1 {
+                font-size: 2.2em;
+                margin-bottom: 20px;
+            }
+
+            .career-hero p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-grid-popup">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="about-us.html"><i class="fas fa-users"></i> About Us</a>
+                    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="career-container">
+        <section class="career-hero">
+            <h1>Join Our Team</h1>
+            <p>Be part of a dynamic team that's passionate about creating unforgettable travel experiences. We're always looking for talented individuals who share our vision of making travel dreams come true.</p>
+        </section>
+
+        <section class="job-listings">
+            <div class="job-card">
+                <h3>Travel Consultant</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Mumbai, India</span>
+                </div>
+                <div class="description">
+                    <p>Join our team as a Travel Consultant and help customers plan their dream vacations. You'll be responsible for creating personalized travel itineraries and providing expert travel advice.</p>
+                </div>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>2+ years of experience in travel industry</li>
+                        <li>Strong knowledge of international destinations</li>
+                        <li>Excellent communication skills</li>
+                        <li>Customer service oriented</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <h3>Digital Marketing Specialist</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Remote</span>
+                </div>
+                <div class="description">
+                    <p>We're looking for a creative Digital Marketing Specialist to help us grow our online presence and engage with our travel community.</p>
+                </div>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>3+ years of digital marketing experience</li>
+                        <li>Proficiency in social media marketing</li>
+                        <li>Experience with content creation</li>
+                        <li>Analytics and reporting skills</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job-card">
+                <h3>Customer Support Executive</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Delhi, India</span>
+                </div>
+                <div class="description">
+                    <p>Join our customer support team to help travelers with their queries and ensure smooth travel experiences.</p>
+                </div>
+                <div class="requirements">
+                    <h4>Requirements:</h4>
+                    <ul>
+                        <li>1+ year of customer service experience</li>
+                        <li>Excellent problem-solving skills</li>
+                        <li>Strong communication abilities</li>
+                        <li>Flexible to work in shifts</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="apply-btn">Apply Now</a>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <h2>Why Join DreamWeaver Travels?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Travel Opportunities</h3>
+                    <p>Experience amazing destinations and get exclusive travel benefits as part of our team.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Career Growth</h3>
+                    <p>Clear career progression paths and opportunities for professional development.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Great Culture</h3>
+                    <p>Work with passionate travel enthusiasts in a supportive and collaborative environment.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-gift"></i>
+                    <h3>Benefits</h3>
+                    <p>Competitive salary, health insurance, and other attractive benefits package.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const nav = document.querySelector('nav');
+            const menuBtn = document.querySelector('.menu-grid-btn');
+            const menuPopup = document.querySelector('.menu-grid-popup');
+
+            if (menuBtn && nav && menuPopup) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    nav.classList.toggle('show-menu-grid');
+                });
+                document.addEventListener('click', function(e) {
+                    if (!nav.contains(e.target)) {
+                        nav.classList.remove('show-menu-grid');
+                    }
+                });
+                menuPopup.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('show-menu-grid');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

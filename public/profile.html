@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .profile-main {
+            max-width: 420px;
+            margin: 48px auto 32px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .profile-main h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .profile-form label {
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #248ee6;
+        }
+        .profile-form input {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .profile-form input:focus {
+            border-color: #248ee6;
+        }
+        .profile-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .profile-form button:hover {
+            background: #248ee6;
+        }
+        .profile-success {
+            color: #2596be;
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+        </div>
+    </header>
+    <main class="profile-main">
+        <h2><i class="fas fa-user-circle"></i> My Profile</h2>
+        <form class="profile-form" id="profileForm" autocomplete="off">
+            <div>
+                <label for="profileName">Full Name</label>
+                <input type="text" id="profileName" name="name" value="John Doe" required>
+            </div>
+            <div>
+                <label for="profileEmail">Email</label>
+                <input type="email" id="profileEmail" name="email" value="john@example.com" required>
+            </div>
+            <div>
+                <label for="profileMobile">Mobile Number</label>
+                <input type="tel" id="profileMobile" name="mobile" value="9876543210" required>
+            </div>
+            <div>
+                <label for="profilePassword">Reset Password</label>
+                <input type="password" id="profilePassword" name="password" placeholder="Enter new password">
+            </div>
+            <button type="submit"><i class="fas fa-save"></i> Save Changes</button>
+        </form>
+        <div class="profile-success" id="profileSuccess">
+            <i class="fas fa-check-circle"></i> Profile updated successfully!
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer>
+        <div style="text-align:center; color:#35424a; padding:16px 0 10px 0; font-size:1em;">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        // Demo profile form handler
+        document.getElementById('profileForm').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('profileSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('profileSuccess').style.display = 'none';
+            }, 2000);
+        };
+        // Example for login form
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            // ...your login validation logic...
+            window.location.href = 'user-panel.html';
+        };
+        // Example for register form
+        document.getElementById('registerForm').onsubmit = function(e) {
+            e.preventDefault();
+            // ...your registration logic...
+            window.location.href = 'user-panel.html';
+        };
+    </script>
+</body>
+</html>

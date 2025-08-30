@@ -1882,14 +1882,55 @@ nav.show-menu-grid .menu-grid-popup {
 .flight-book-btn:hover {
     background: #248ee6;
 }
-@media (max-width: 900px) {
-    .flight-booking-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-    }
-    .flight-booking-card {
-        width: 90%;
-        max-width: 340px;
-    }
+
+/* Add to your styles.css */
+.cookie-popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background: #35424a;
+    color: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    box-shadow: 0 -2px 12px rgba(36,142,230,0.10);
+}
+.cookie-popup-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 24px;
+}
+.cookie-popup-text {
+    font-size: 1em;
+    margin-right: 12px;
+}
+.cookie-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1em;
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.18s;
+}
+.cookie-btn.accept {
+    background: #2596be;
+    color: #fff;
+}
+.cookie-btn.accept:hover {
+    background: #248ee6;
+}
+.cookie-btn.reject {
+    background: #fff;
+    color: #2596be;
+    border: 1.5px solid #2596be;
+}
+.cookie-btn.reject:hover {
+    background: #eaf6fb;
 }

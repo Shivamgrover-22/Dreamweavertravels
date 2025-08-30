@@ -129,6 +129,10 @@
                 generateLoginCaptcha();
             } else {
                 document.getElementById('loginCaptchaError').style.display = 'none';
+                // Example: after successful login
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userName', 'John Doe'); // Set this to the actual user's name
+                window.location.href = 'user-panel.html'; // or wherever you want to redirect
             }
         };
     </script>

@@ -350,7 +350,7 @@
                 <h3>Company</h3>
                 <ul>
                     <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
+                    <li><a href="career.html">Careers</a></li>
                     <li><a href="customer-service.html">Customer Service</a></li>
                 </ul>
             </div>
@@ -405,6 +405,16 @@
             &copy; 2025 DreamWeaver Travels. All rights reserved.
         </div>
     </footer>
+    <!-- Add this just before </footer> in your index.html (and other pages if needed) -->
+    <div id="cookie-popup" class="cookie-popup" style="display:none;">
+        <div class="cookie-popup-content">
+            <span class="cookie-popup-text">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            </span>
+            <button id="acceptCookie" class="cookie-btn accept">Accept</button>
+            <button id="rejectCookie" class="cookie-btn reject">Reject</button>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Minimal JS for menu, contact modal, testimonials, and typewriter
@@ -560,6 +570,14 @@
                     }
                 });
             });
+
+            // Contact Us button in Destinations section triggers contact modal
+            const contactUsBtn = document.querySelector('.contact-us-btn');
+            if (contactUsBtn) {
+                contactUsBtn.addEventListener('click', function() {
+                    document.getElementById('contact-modal').style.display = 'flex';
+                });
+            }
         });
 
         // Login form validation (login.html)
@@ -634,9 +652,48 @@
                 forgotForm.onsubmit = handleForgotPasswordForm;
             }
         });
-    </script>
 
-    <!-- Add this WhatsApp floating button just before </body> -->
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check login status
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            const userName = localStorage.getItem('userName') || 'User';
+
+            // Example: Update login icon to user menu
+            const navLoginIcon = document.querySelector('.nav-login-icon');
+            if (isLoggedIn && navLoginIcon) {
+                navLoginIcon.innerHTML = `
+                    <div class="nav-user-menu">
+                        <i class="fas fa-user-circle"></i> ${userName}
+                        <button id="logoutBtn" style="margin-left:10px;background:none;border:none;color:#2596be;cursor:pointer;">Logout</button>
+                    </div>
+                `;
+                // Logout functionality
+                document.getElementById('logoutBtn').onclick = function() {
+                    localStorage.removeItem('isLoggedIn');
+                    localStorage.removeItem('userName');
+                    window.location.href = 'index.html';
+                };
+            }
+        });
+
+        // Add this before </body> in your index.html
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cookiePopup = document.getElementById('cookie-popup');
+    if (!localStorage.getItem('cookieConsent')) {
+        cookiePopup.style.display = 'flex';
+    }
+    document.getElementById('acceptCookie').onclick = function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookiePopup.style.display = 'none';
+    };
+    document.getElementById('rejectCookie').onclick = function() {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookiePopup.style.display = 'none';
+    };
+});
+</script>
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/8448665087" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>

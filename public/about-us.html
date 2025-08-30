@@ -8,6 +8,63 @@
     <!-- Font Awesome for icons (optional) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        header {
+            width: 100vw;
+            background: #35424a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo span {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-left: 8px;
+        }
+
+        .menu-grid-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 12px;
+        }
+
+        .menu-grid-popup {
+            display: none;
+            position: absolute;
+            top: 48px; /* Adjust if your header is taller/shorter */
+            right: 0;
+            background: #35424a;
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 16px 0;
+            z-index: 1001;
+            min-width: 180px;
+        }
+
+        nav.show-menu-grid .menu-grid-popup {
+            display: block;
+        }
+
+        .menu-grid-popup a {
+            display: block;
+            padding: 10px 24px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.18s, color 0.18s;
+        }
+
+        .menu-grid-popup a:hover {
+            background: #2596be;
+            color: #fff;
+        }
+
         .about-container {
             max-width: 800px;
             margin: 40px auto 30px auto;
@@ -66,6 +123,9 @@
         .about-team-member small {
             color: #555;
         }
+        main, .main-content, .about-content {
+            margin-top: 64px; /* Match or exceed your header height */
+        }
         @media (max-width: 700px) {
             .about-container {
                 padding: 12px 4vw 12px 4vw;
@@ -78,39 +138,86 @@
     </style>
 </head>
 <body>
-    <div class="about-container">
-        <h2><i class="fas fa-users"></i> About DreamWeaver Travels</h2>
-        <p>
-            DreamWeaver Travels is your trusted partner for unforgettable journeys across the globe. Founded in 2020, we are passionate about making travel dreams come true for families, couples, and solo adventurers. Our team specializes in personalized holiday packages, seamless bookings, and 24/7 customer support.
-        </p>
-        <p>
-            Whether you want to explore exotic international destinations or discover the beauty of India, our experts are here to guide you every step of the way. We believe in honest advice, transparent pricing, and creating memories that last a lifetime.
-        </p>
-        <div class="about-team">
-            <h3>Meet Our Team</h3>
-            <div class="about-team-list">
-                <div class="about-team-member">
-                    <img src="user1.jpg" alt="Priya Sharma">
-                    <span>Priya Sharma</span>
-                    <small>Founder & CEO</small>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-grid-popup">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
                 </div>
-                <div class="about-team-member">
-                    <img src="user2.jpg" alt="Rahul Mehta">
-                    <span>Rahul Mehta</span>
-                    <small>Head of Operations</small>
-                </div>
-                <div class="about-team-member">
-                    <img src="user3.jpg" alt="Anita Verma">
-                    <span>Anita Verma</span>
-                    <small>Travel Consultant</small>
-                </div>
-                <div class="about-team-member">
-                    <img src="user4.jpg" alt="Sunita Rao">
-                    <span>Sunita Rao</span>
-                    <small>Customer Support</small>
+            </nav>
+        </div>
+    </header>
+    <main class="about-content">
+        <div class="about-container">
+            <h2><i class="fas fa-users"></i> About DreamWeaver Travels</h2>
+            <p>
+                DreamWeaver Travels is your trusted partner for unforgettable journeys across the globe. Founded in 2020, we are passionate about making travel dreams come true for families, couples, and solo adventurers. Our team specializes in personalized holiday packages, seamless bookings, and 24/7 customer support.
+            </p>
+            <p>
+                Whether you want to explore exotic international destinations or discover the beauty of India, our experts are here to guide you every step of the way. We believe in honest advice, transparent pricing, and creating memories that last a lifetime.
+            </p>
+            <div class="about-team">
+                <h3>Meet Our Team</h3>
+                <div class="about-team-list">
+                    <div class="about-team-member">
+                        <img src="user1.jpg" alt="Priya Sharma">
+                        <span>Priya Sharma</span>
+                        <small>Founder & CEO</small>
+                    </div>
+                    <div class="about-team-member">
+                        <img src="user2.jpg" alt="Rahul Mehta">
+                        <span>Rahul Mehta</span>
+                        <small>Head of Operations</small>
+                    </div>
+                    <div class="about-team-member">
+                        <img src="user3.jpg" alt="Anita Verma">
+                        <span>Anita Verma</span>
+                        <small>Travel Consultant</small>
+                    </div>
+                    <div class="about-team-member">
+                        <img src="user4.jpg" alt="Sunita Rao">
+                        <span>Sunita Rao</span>
+                        <small>Customer Support</small>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const nav = document.querySelector('nav');
+        const menuBtn = document.querySelector('.menu-grid-btn');
+        const menuPopup = document.querySelector('.menu-grid-popup');
+
+        // Open/close menu
+        if (menuBtn && nav && menuPopup) {
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                nav.classList.toggle('show-menu-grid');
+            });
+            document.addEventListener('click', function(e) {
+                if (!nav.contains(e.target)) {
+                    nav.classList.remove('show-menu-grid');
+                }
+            });
+            // Close menu when any link is clicked
+            menuPopup.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show-menu-grid');
+                });
+            });
+        }
+    });
+    </script>
 </body>
 </html>
