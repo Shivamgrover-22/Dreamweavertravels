@@ -1313,50 +1313,25 @@ img, video {
 .menu-grid-popup {
     display: none;
     position: absolute;
-    top: 44px; /* Just below the button */
-    left: 0;   /* Align left with button */
+    top: 48px; /* Adjust if your header is taller */
+    left: 0;   /* Change from right: 0 to left: 0 */
     background: #35424a;
     border-radius: 10px;
-    box-shadow: 0 4px 24px rgba(36,142,230,0.18);
-    padding: 18px 0 10px 0;
-    min-width: 170px;
-    z-index: 100;
-    flex-direction: column;
-    align-items: flex-start;
+    box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+    padding: 16px 0;
+    z-index: 1001;
+    min-width: 180px;
 }
-
-.menu-grid-popup a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 24px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.08em;
-    border-radius: 6px;
-    width: 100%;
-}
-
-.menu-grid-popup a:hover {
-    background: #2596be;
-    color: #ffd700;
-}
-
 nav.show-menu-grid .menu-grid-popup {
-    display: flex;
+    display: block;
 }
-
-/* Responsive: hide menu grid button on small screens (if you want) */
-@media (max-width: 700px) {
-    .menu-grid-btn {
-        font-size: 1.5em;
-        margin-left: 0;
-    }
-    .menu-grid-popup {
-        right: 10px;
-        top: 42px;
-        min-width: 140px;
-    }
+.menu-grid-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 12px;
 }
 
 /* Contact Modal */

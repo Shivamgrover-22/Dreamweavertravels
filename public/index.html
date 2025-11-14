@@ -416,31 +416,31 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Minimal JS for menu, contact modal, testimonials, and typewriter
-            const nav = document.querySelector('nav');
-            const menuBtn = document.querySelector('.menu-grid-btn');
-            const menuPopup = document.querySelector('.menu-grid-popup');
+document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector('nav');
+    const menuBtn = document.querySelector('.menu-grid-btn');
+    const menuPopup = document.querySelector('.menu-grid-popup');
 
-            // Open/close menu
-            if (menuBtn && nav && menuPopup) {
-                menuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    nav.classList.toggle('show-menu-grid');
-                });
-                document.addEventListener('click', function(e) {
-                    if (!nav.contains(e.target)) {
-                        nav.classList.remove('show-menu-grid');
-                    }
-                });
-                // Close menu when any link is clicked
-                menuPopup.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        nav.classList.remove('show-menu-grid');
-                    });
-                });
+    if (menuBtn && nav && menuPopup) {
+        menuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('show-menu-grid');
+        });
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target)) {
+                nav.classList.remove('show-menu-grid');
             }
-
+        });
+        menuPopup.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('show-menu-grid');
+            });
+        });
+    }
+});
+</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
             // Contact modal logic
             const contactModal = document.getElementById('contact-modal');
             const closeBtn = document.querySelector('.contact-modal-close');
