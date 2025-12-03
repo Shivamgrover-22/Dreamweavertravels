@@ -2,11 +2,9 @@
   "name": "DreamWeaver-Travels",
   "version": "1.0.0",
   "description": "A travel website showcasing various destinations and travel packages.",
-  "main": "src/app.js",
+  "main": "public/index.html",
   "scripts": {
-    "start": "node src/app.js",
-    "build": "echo Build script not defined",
-    "test": "echo Test script not defined"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "travel",
@@ -14,11 +12,5 @@
     "dreamweaver"
   ],
   "author": "Your Name",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+  "license": "MIT"
 }

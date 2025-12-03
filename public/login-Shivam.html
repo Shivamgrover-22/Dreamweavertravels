@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | DreamWeaver Travels</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .login-container {
+            max-width: 350px;
+            margin: 80px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.12);
+            padding: 32px 28px 24px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login-container h2 {
+            color: #2596be;
+            margin-bottom: 24px;
+            font-size: 1.5em;
+        }
+        .login-container form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container input[type="email"] {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus,
+        .login-container input[type="email"]:focus {
+            border-color: #248ee6;
+        }
+        .login-container button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .login-container button:hover {
+            background: #248ee6;
+        }
+        .login-container .login-icon {
+            font-size: 2.2em;
+            color: #2596be;
+            margin-bottom: 10px;
+        }
+        .login-container .login-links {
+            margin-top: 16px;
+            font-size: 0.98em;
+            text-align: center;
+        }
+        .login-container .login-links a {
+            color: #2596be;
+            text-decoration: none;
+            margin: 0 6px;
+            transition: color 0.18s;
+        }
+        .login-container .login-links a:hover {
+            color: #248ee6;
+            text-decoration: underline;
+        }
+        #loginCaptchaBox {
+            margin: 10px 0;
+        }
+        #loginCaptchaError {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-icon">
+            <i class="fas fa-sign-in-alt"></i>
+        </div>
+        <h2>Login to DreamWeaver Travels</h2>
+        <!-- Example login form with captcha -->
+        <form id="loginForm" autocomplete="off">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <div id="loginCaptchaBox">
+                <span id="loginCaptchaQuestion"></span>
+                <input type="text" id="loginCaptchaAnswer" placeholder="Answer" required style="width:80px;">
+            </div>
+            <button type="submit">Login</button>
+            <div id="loginCaptchaError">Incorrect captcha. Please try again.</div>
+        </form>
+        <div class="login-links">
+            <a href="forgot-password.html">Forgot Password?</a> | 
+            <a href="create-account.html">Create Account</a>
+        </div>
+    </div>
+    <script>
+        // Simple math captcha for login
+        function generateLoginCaptcha() {
+            const a = Math.floor(Math.random() * 10) + 1;
+            const b = Math.floor(Math.random() * 10) + 1;
+            document.getElementById('loginCaptchaQuestion').textContent = `What is ${a} + ${b}?`;
+            document.getElementById('loginCaptchaBox').dataset.answer = a + b;
+        }
+        generateLoginCaptcha();
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const userAnswer = document.getElementById('loginCaptchaAnswer').value;
+            const correct = document.getElementById('loginCaptchaBox').dataset.answer;
+            const errorDiv = document.getElementById('loginCaptchaError');
+
+            if (parseInt(userAnswer) !== parseInt(correct)) {
+                errorDiv.textContent = 'Incorrect captcha. Please try again.';
+                errorDiv.style.display = 'block';
+                generateLoginCaptcha();
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    window.location.href = 'user-panel.html';
+                } else {
+                    errorDiv.textContent = result.message;
+                    errorDiv.style.display = 'block';
+                }
+            } catch (err) {
+                errorDiv.textContent = 'An error occurred. Please try again.';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

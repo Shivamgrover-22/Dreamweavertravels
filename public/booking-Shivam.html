@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Your Trip | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .booking-main {
+            max-width: 480px;
+            margin: 48px auto 32px auto;
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(36,142,230,0.10);
+            padding: 32px 28px 24px 28px;
+        }
+        .booking-main h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .booking-form input,
+        .booking-form select {
+            padding: 10px 12px;
+            border: 1.5px solid #2596be;
+            border-radius: 6px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.18s;
+        }
+        .booking-form input:focus,
+        .booking-form select:focus {
+            border-color: #248ee6;
+        }
+        .booking-form button {
+            background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.18s;
+        }
+        .booking-form button:hover {
+            background: #248ee6;
+        }
+        .booking-success {
+            color: #2596be;
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+            <nav>
+                <button class="menu-grid-btn" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="menu-grid-popup">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
+                    <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="about-us.html"><i class="fas fa-users"></i> About Us</a>
+                    <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
+                </div>
+                <div class="nav-help-icon">
+                    <a href="customer-service.html" title="Customer Service">
+                        <i class="fas fa-headset"></i>
+                    </a>
+                </div>
+                <div class="nav-login-icon">
+                    <a href="login.html" title="Login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="booking-main">
+        <h2><i class="fas fa-calendar-check"></i> Book Your Trip</h2>
+        <form class="booking-form" id="bookingForm" autocomplete="off">
+            <input type="text" name="fullname" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <select name="destination" required>
+                <option value="">Select Destination</option>
+                <option>Paris</option>
+                <option>Rome</option>
+                <option>Tokyo</option>
+                <option>New York</option>
+                <option>Sydney</option>
+                <option>Maldives</option>
+                <option>Switzerland</option>
+                <option>Bali</option>
+                <option>Egypt</option>
+                <option>Goa</option>
+                <option>Manali</option>
+                <option>Kerala</option>
+            </select>
+            <input type="date" name="date" required>
+            <input type="number" name="people" placeholder="Number of People" min="1" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i> Book Now</button>
+        </form>
+        <div class="booking-success" id="bookingSuccess">
+            <i class="fas fa-check-circle"></i> Thank you! Your booking request has been received.
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer id="footer">
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h3>Travel & Tourism</h3>
+                <ul>
+                    <li><a href="travel-blog.html"><i class="fas fa-blog"></i> Travel Blog</a></li>
+                    <li><a href="subscribe.html"><i class="fas fa-bell"></i> Subscribe for Offers</a></li>
+                    <li><a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="career.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="customer-service.html"><i class="fas fa-headset"></i> Customer Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058 </li>
+                    <li><i class="fas fa-phone"></i>8448665087 </li>
+                    <li><i class="fas fa-envelope"></i> info@dreamweavertravels.in</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/dreamweaver_travels?igsh=ZXo3MGYwb2cwMDl3" target="_blank" class="footer-instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/dreamweaver-travels/" target="_blank" class="footer-linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-privacy">
+            <a href="privacy-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Privacy &amp; Policy
+            </a>
+        </div>
+        <div class="footer-terms">
+            <a href="terms-conditions.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Terms &amp; Conditions
+            </a>
+        </div>
+        <div class="footer-disclaimer">
+            <a href="disclaimer.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Disclaimer
+            </a>
+        </div>
+        <div class="footer-cancellation">
+            <a href="cancellation-payment-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Cancellation &amp; Payment Policy
+            </a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

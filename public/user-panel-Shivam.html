@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel | DreamWeaver Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Chart.js for dashboard charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .user-panel-main {
+            max-width: 900px;
+            margin: 48px auto 32px auto;
+            padding: 0 16px;
+        }
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .dashboard-header h2 {
+            color: #2596be;
+            margin-bottom: 18px;
+        }
+        .stat-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-color);
+            border: 1px solid var(--border-light);
+        }
+        .stat-card i {
+            font-size: 1.8em;
+            color: var(--primary-hover);
+            margin-bottom: 8px;
+        }
+        .stat-card .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .stat-card .stat-label {
+            font-size: 0.95em;
+            color: var(--text-medium);
+        }
+        .dashboard-chart-container {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-color);
+            margin-bottom: 40px;
+        }
+        .dashboard-chart-container h3 {
+            text-align: center;
+            color: #2596be;
+            margin-top: 0;
+        }
+        .user-panel-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin: 32px 0 0 0;
+        }
+        .user-panel-link {
+            background: var(--bg-section-light);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(36,142,230,0.08);
+            padding: 24px 32px;
+            min-width: 160px;
+            text-align: center;
+            transition: box-shadow 0.18s, transform 0.18s;
+            text-decoration: none;
+            color: #2596be;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .user-panel-link i {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #248ee6;
+        }
+        .user-panel-link:hover {
+            box-shadow: 0 6px 18px rgba(36,142,230,0.18);
+            transform: translateY(-3px) scale(1.05);
+            background: var(--bg-chatbot-bot-msg);
+            color: #248ee6;
+        }
+        @media (max-width: 700px) {
+            .user-panel-links {
+                flex-direction: column;
+                gap: 18px;
+            }
+            .user-panel-link {
+                min-width: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
+        </div>
+    </header>
+    <main class="user-panel-main">
+        <div class="dashboard-header">
+            <h2 id="welcome-message"><i class="fas fa-user-circle"></i> Welcome, User!</h2>
+            <p>Here's a summary of your travel activity with DreamWeaver Travels.</p>
+        </div>
+
+        <div class="stat-cards" id="stat-cards">
+            <!-- Stat cards will be injected here -->
+        </div>
+
+        <div class="dashboard-chart-container">
+            <h3>Bookings by Type</h3>
+            <canvas id="bookingsChart"></canvas>
+        </div>
+
+        <div class="user-panel-links">
+            <a href="profile.html" class="user-panel-link">
+                <i class="fas fa-user-cog"></i>
+                My Profile
+            </a>
+            <a href="profile.html#booking-history-section" class="user-panel-link">
+                <i class="fas fa-calendar-check"></i>
+                My Bookings
+            </a>
+            <a href="index.html" class="user-panel-link">
+                <i class="fas fa-plus-circle"></i>
+                New Booking
+            </a>
+        </div>
+    </main>
+    <div style="text-align:center; margin: 24px 0 0 0;">
+        <a href="index.html" class="flight-book-btn" style="display:inline-block;">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+    <footer>
+        <div style="text-align:center; color:#35424a; padding:16px 0 10px 0; font-size:1em;">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const welcomeMessage = document.getElementById('welcome-message');
+            const statCardsContainer = document.getElementById('stat-cards');
+
+            // Check login status and update welcome message
+            try {
+                const sessionRes = await fetch('/api/session');
+                const sessionData = await sessionRes.json();
+                if (!sessionData.isLoggedIn) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                welcomeMessage.innerHTML = `<i class="fas fa-user-circle"></i> Welcome, ${sessionData.user.name}!`;
+            } catch (error) {
+                console.error('Session check failed:', error);
+                window.location.href = 'login.html';
+            }
+
+            // Fetch dashboard stats and render content
+            try {
+                const statsRes = await fetch('/api/dashboard-stats');
+                const statsData = await statsRes.json();
+
+                if (statsData.success) {
+                    const stats = statsData.stats;
+                    // Render stat cards
+                    statCardsContainer.innerHTML = `
+                        <div class="stat-card">
+                            <i class="fas fa-suitcase-rolling"></i>
+                            <div class="stat-number">${stats.total}</div>
+                            <div class="stat-label">Total Bookings</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-globe-americas"></i>
+                            <div class="stat-number">${stats.package}</div>
+                            <div class="stat-label">Packages</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-plane"></i>
+                            <div class="stat-number">${stats.flight}</div>
+                            <div class="stat-label">Flights</div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-hotel"></i>
+                            <div class="stat-number">${stats.hotel}</div>
+                            <div class="stat-label">Hotels</div>
+                        </div>
+                    `;
+
+                    // Render chart
+                    const ctx = document.getElementById('bookingsChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Packages', 'Flights', 'Hotels', 'Buses'],
+                            datasets: [{
+                                label: 'Bookings',
+                                data: [stats.package, stats.flight, stats.hotel, stats.bus],
+                                backgroundColor: ['#2596be', '#36a2eb', '#ffce56', '#ff6384'],
+                                hoverOffset: 4
+                            }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: false }
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching dashboard stats:', error);
+            }
+        });
+    </script>
+</body>
+</html>

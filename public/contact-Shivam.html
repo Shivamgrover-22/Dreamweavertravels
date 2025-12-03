@@ -207,12 +207,12 @@ footer {
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
-            <span>DreamWeaver Travels</span>
-        </div>
+    <header id="header">
         <div class="logo-menu-container">
+            <div class="logo">
+                <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels Logo" height="36">
+                <span>DreamWeaver Travels</span>
+            </div>
             <nav>
                 <button class="menu-grid-btn" aria-label="Open menu">
                     <i class="fas fa-bars"></i>
@@ -221,8 +221,25 @@ footer {
                     <a href="index.html"><i class="fas fa-home"></i> Home</a>
                     <a href="destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a>
                     <a href="tours.html"><i class="fas fa-plane"></i> Tours</a>
+                    <a href="about-us.html"><i class="fas fa-users"></i> About Us</a>
                     <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
                 </div>
+                <div class="nav-help-icon">
+                    <a href="customer-service.html" title="Customer Service">
+                        <i class="fas fa-headset"></i>
+                    </a>
+                </div>
+                <div class="nav-login-icon">
+                    <a href="login.html" title="Login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="contact-main">
+        <section class="contact-section">
+            <h2>Contact Details</h2>
             <div class="contact-details">
                 <p><i class="fas fa-map-marker-alt"></i> Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058</p>
                 <p><i class="fas fa-phone"></i> +91 8448665087</p>
@@ -243,35 +260,73 @@ footer {
             </form>
         </section>
     </main>
-    <footer>
-        &copy; 2025 DreamWeaver Travels. All rights reserved.
+    <footer id="footer">
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h3>Travel & Tourism</h3>
+                <ul>
+                    <li><a href="travel-blog.html"><i class="fas fa-blog"></i> Travel Blog</a></li>
+                    <li><a href="subscribe.html"><i class="fas fa-bell"></i> Subscribe for Offers</a></li>
+                    <li><a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="career.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="customer-service.html"><i class="fas fa-headset"></i> Customer Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058 </li>
+                    <li><i class="fas fa-phone"></i>8448665087 </li>
+                    <li><i class="fas fa-envelope"></i> info@dreamweavertravels.in</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/dreamweaver_travels?igsh=ZXo3MGYwb2cwMDl3" target="_blank" class="footer-instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/dreamweaver-travels/" target="_blank" class="footer-linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-privacy">
+            <a href="privacy-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Privacy &amp; Policy
+            </a>
+        </div>
+        <div class="footer-terms">
+            <a href="terms-conditions.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Terms &amp; Conditions
+            </a>
+        </div>
+        <div class="footer-disclaimer">
+            <a href="disclaimer.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Disclaimer
+            </a>
+        </div>
+        <div class="footer-cancellation">
+            <a href="cancellation-payment-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Cancellation &amp; Payment Policy
+            </a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
+        </div>
     </footer>
     <!-- Add this just before </body> to enable menu functionality -->
-    <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.querySelector('nav');
-    const menuBtn = document.querySelector('.menu-grid-btn');
-    const menuPopup = document.querySelector('.menu-grid-popup');
-
-    // Open/close menu
-    if (menuBtn && nav && menuPopup) {
-        menuBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            nav.classList.toggle('show-menu-grid');
-        });
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target)) {
-                nav.classList.remove('show-menu-grid');
-            }
-        });
-        // Close menu when any link is clicked
-        menuPopup.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('show-menu-grid');
-            });
-        });
-    }
-});
-</script>
+    <script src="main.js"></script>
 </body>
 </html>

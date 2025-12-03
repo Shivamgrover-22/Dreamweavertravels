@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Dreamweaverlogo2.png">
     <!-- Or if using .ico: -->
     <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <header id="header">
         <div class="logo-menu-container">
             <div class="logo">
@@ -32,30 +34,52 @@
                     <a href="about-us.html"><i class="fas fa-users"></i> About Us</a>
                     <a href="contact.html"><i class="fas fa-phone"></i> Contact</a>
                 </div>
-                <!-- Customer Service Icon Removed -->
-                <!-- Login removed -->
+                <div class="nav-help-icon">
+                    <a href="customer-service.html" title="Customer Service">
+                        <i class="fas fa-headset"></i>
+                    </a>
+                </div>
+                <div class="nav-login-icon">
+                    <a href="login.html" title="Login">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </div>
+                <!-- Dark Mode Toggle -->
+                <div class="dark-mode-toggle">
+                    <input type="checkbox" id="darkModeToggle" class="dark-mode-input">
+                    <label for="darkModeToggle" class="dark-mode-label">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </label>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- changed: preload="none" and poster to avoid heavy decode on load -->
-        <video class="hero-video" src="bgvid.mp4" autoplay muted loop playsinline preload="none" poster="hero-poster.jpg"></video>
+        <video class="hero-video" src="bgvid.mp4" autoplay muted loop playsinline></video>
         <div class="hero-overlay">
             <h1>Welcome to DreamWeaver Travels</h1>
             <p>Explore the world with us!</p>
-            <a href="#" class="book-now-btn" id="bookNowBtn" onclick="document.getElementById('enquiry-modal').style.display='flex'; return false;">
-                <span class="btn-text">Enquire Now</span>
+            <a href="booking.html" class="book-now-btn" id="bookNowBtn">
+                <span class="btn-text">Book Now</span>
                 <span class="plane" style="display:none;">
-                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-plane"></i>
                 </span>
             </a>
         </div>
     </section>
 
     <!-- Destinations Section -->
-    <main id="main-content">
+    <section class="destinations-section">
+        <div class="destinations-header">
+            <h2>Explore Our Destinations</h2>
+            <div class="destination-search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="destination-search" placeholder="e.g., Paris, Tokyo...">
+            </div>
+        </div>
         <div class="destinations-list">
             <div class="destination">
                 <img src="paris.jpg" alt="Paris">
@@ -83,9 +107,32 @@
                 <p>Enjoy the stunning harbor, beaches, and the famous Opera House.</p>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Enquiry Section Removed -->
+    <!-- Flight Booking Section -->
+    <section class="flight-booking-section">
+        <h2>Book Your Flight Tickets</h2>
+        <div class="flight-booking-cards">
+            <div class="flight-booking-card">
+                <i class="fas fa-plane-departure"></i>
+                <h3>Search &amp; Book Flights</h3>
+                <p>Find and book domestic &amp; international flights at the best prices.</p>
+                <a href="flight-booking.html" class="flight-book-btn">Book Flight</a>
+            </div>
+            <div class="flight-booking-card">
+                <i class="fas fa-hotel"></i>
+                <h3>Book Hotels</h3>
+                <p>Choose from a wide range of hotels for your stay.</p>
+                <a href="book-hotels.html" class="flight-book-btn">Book Hotel</a>
+            </div>
+            <div class="flight-booking-card">
+                <i class="fas fa-bus"></i>
+                <h3>Bus Tickets</h3>
+                <p>Book bus tickets for your intercity travel easily.</p>
+                <a href="book-bus.html" class="flight-book-btn">Book Bus</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Airlines Section -->
     <section class="airlines-section">
@@ -142,50 +189,63 @@
             <button class="package-tab active" data-tab="international">International</button>
             <button class="package-tab" data-tab="domestic">Domestic</button>
         </div>
-        <div class="packages-list" id="international-packages">
+        <div class="packages-grid" id="international-packages">
             <div class="package-card">
                 <img src="maldives.jpg" alt="Maldives">
-                <h3>Maldives Getaway</h3>
-                <p>5 Nights / 6 Days<br>Luxury resort stay, water sports, and island tours.</p>
-                <span class="package-price">From ₹85475</span>
+                <div class="package-content">
+                    <h3>Maldives Getaway</h3>
+                    <p class="package-details"><i class="fas fa-clock"></i> 5 Nights / 6 Days</p>
+                    <div class="package-footer">
+                        <span class="package-price">From ₹85,475</span>
+                        <a href="booking.html" class="package-book-btn">Explore</a>
+                    </div>
+                </div>
             </div>
             <div class="package-card">
                 <img src="Switzerland.jpg" alt="Switzerland">
-                <h3>Swiss Alps Adventure</h3>
-                <p>7 Nights / 8 Days<br>Scenic train rides, mountain excursions, and city tours.</p>
-                <span class="package-price">From ₹128256</span>
+                <div class="package-content">
+                    <h3>Swiss Alps Adventure</h3>
+                    <p class="package-details"><i class="fas fa-clock"></i> 7 Nights / 8 Days</p>
+                    <div class="package-footer">
+                        <span class="package-price">From ₹1,28,256</span>
+                        <a href="booking.html" class="package-book-btn">Explore</a>
+                    </div>
+                </div>
             </div>
             <div class="package-card">
                 <img src="bali.jpg" alt="Bali">
-                <h3>Bali Bliss</h3>
-                <p>6 Nights / 7 Days<br>Beach resorts, temple visits, and cultural experiences.</p>
-                <span class="package-price">From ₹68363</span>
+                <div class="package-content">
+                    <h3>Bali Bliss</h3>
+                    <p class="package-details"><i class="fas fa-clock"></i> 6 Nights / 7 Days</p>
+                    <div class="package-footer">
+                        <span class="package-price">From ₹68,363</span>
+                        <a href="booking.html" class="package-book-btn">Explore</a>
+                    </div>
+                </div>
             </div>
             <div class="package-card">
                 <img src="egypt.jpg" alt="Egypt">
-                <h3>Egyptian Wonders</h3>
-                <p>8 Nights / 9 Days<br>Pyramids, Nile cruise, and ancient history tours.</p>
-                <span class="package-price">From ₹102587</span>
+                <div class="package-content">
+                    <h3>Egyptian Wonders</h3>
+                    <p class="package-details"><i class="fas fa-clock"></i> 8 Nights / 9 Days</p>
+                    <div class="package-footer">
+                        <span class="package-price">From ₹1,02,587</span>
+                        <a href="booking.html" class="package-book-btn">Explore</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="packages-list" id="domestic-packages" style="display:none;">
+        <div class="packages-grid" id="domestic-packages" style="display:none;">
             <div class="package-card">
                 <img src="goa.jpg" alt="Goa">
-                <h3>Goa Beach Escape</h3>
-                <p>4 Nights / 5 Days<br>Sun, sand, and sea at India's top beach destination.</p>
-                <span class="package-price">From ₹12,999</span>
-            </div>
-            <div class="package-card">
-                <img src="manali.jpg" alt="Manali">
-                <h3>Manali Adventure</h3>
-                <p>5 Nights / 6 Days<br>Snow-capped mountains, adventure sports, and scenic beauty.</p>
-                <span class="package-price">From ₹15,499</span>
-            </div>
-            <div class="package-card">
-                <img src="kerala.jpg" alt="Kerala">
-                <h3>Kerala Backwaters</h3>
-                <p>6 Nights / 7 Days<br>Houseboat stay, lush greenery, and tranquil waters.</p>
-                <span class="package-price">From ₹18,999</span>
+                <div class="package-content">
+                    <h3>Goa Beach Escape</h3>
+                    <p class="package-details"><i class="fas fa-clock"></i> 4 Nights / 5 Days</p>
+                    <div class="package-footer">
+                        <span class="package-price">From ₹12,999</span>
+                        <a href="booking.html" class="package-book-btn">Explore</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -231,44 +291,13 @@
     <section class="testimonials-section">
         <h2>What Our Customers Say</h2>
         <div class="testimonials-slider">
-            <div class="testimonials-list">
-                <div class="testimonial-card active">
-                    <div class="testimonial-text">
-                        <i class="fas fa-quote-left"></i>
-                        DreamWeaver Travels made our honeymoon in Bali unforgettable! The hotel and tours were perfectly arranged.
-                    </div>
-                    <div class="testimonial-user">
-                        <img src="user1.jpg" alt="User 1">
-                        <span>Priya Sharma</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <i class="fas fa-quote-left"></i>
-                        Excellent visa support and quick responses. Our Switzerland trip was smooth and hassle-free. Highly recommended!
-                    </div>
-                    <div class="testimonial-user">
-                        <img src="user2.jpg" alt="User 2">
-                        <span>Rahul Mehta</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        <i class="fas fa-quote-left"></i>
-                        Great deals and friendly staff. The group offer saved us a lot on our family holiday to Paris!
-                    </div>
-                    <div class="testimonial-user">
-                        <img src="user3.jpg" alt="User 3">
-                        <span>Anita Verma</span>
-                    </div>
-                </div>
+            <button class="testimonial-arrow prev" id="testimonial-prev" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonials-list" id="testimonials-list-container">
+                <!-- Testimonials will be dynamically loaded here -->
             </div>
+            <button class="testimonial-arrow next" id="testimonial-next" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="testimonial-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
+        <div class="testimonial-dots" id="testimonial-dots-container"></div>
     </section>
 
     <!-- Contact Popup Modal (hidden by default) -->
@@ -297,35 +326,6 @@
         </div>
     </div>
 
-    <!-- Enquiry Popup Modal (New) -->
-    <div id="enquiry-modal" class="enquiry-modal" style="display:none;">
-        <div class="enquiry-modal-content">
-            <span class="enquiry-modal-close" title="Close">&times;</span>
-            <h2>Plan Your Dream Trip</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">Tell us what you're looking for!</p>
-            <form id="enquiryFormPopup" class="enquiry-form-popup">
-                <div class="form-group">
-                    <label for="popup-name"><i class="fas fa-user"></i> Name</label>
-                    <input type="text" id="popup-name" name="name" placeholder="John Doe" required>
-                </div>
-                <div class="form-group">
-                    <label for="popup-email"><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" id="popup-email" name="email" placeholder="john@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="popup-phone"><i class="fas fa-phone"></i> Phone</label>
-                    <input type="tel" id="popup-phone" name="phone" placeholder="+91..." required>
-                </div>
-                <div class="form-group">
-                    <label for="popup-destination"><i class="fas fa-map-marker-alt"></i> Destination</label>
-                    <input type="text" id="popup-destination" name="destination" placeholder="e.g., Paris" required>
-                </div>
-                <!-- Simplified form for popup -->
-                <button type="submit" class="submit-btn">Send Enquiry <i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-
     <!-- Get Updates Section -->
     <section class="get-updates-section">
         <div class="get-updates-container">
@@ -339,54 +339,72 @@
     </section>
 
     <footer id="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <div class="footer-logo">
-                    <img src="Dreamweaver logo.jpg" alt="DreamWeaver Travels">
-                    <span>DreamWeaver Travels</span>
-                </div>
-                <p class="footer-desc">Crafting unforgettable journeys and dream vacations for you. Explore the world with confidence and comfort.</p>
-                <div class="footer-socials">
-                    <a href="https://www.instagram.com/dreamweaver_travels?igsh=ZXo3MGYwb2cwMDl3" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/dreamweaver-travels/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://wa.me/8448665087" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h3>Travel & Tourism</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="tours.html">Tours</a></li>
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="travel-blog.html"><i class="fas fa-blog"></i> Travel Blog</a></li>
+                    <li><a href="subscribe.html"><i class="fas fa-bell"></i> Subscribe for Offers</a></li>
+                    <li><a href="testimonials.html"><i class="fas fa-star"></i> Testimonials</a></li>
                 </ul>
             </div>
-
-            <div class="footer-column">
-                <h3>Support & Legal</h3>
+            <div class="footer-section">
+                <h3>Company</h3>
                 <ul>
-                    <li><a href="customer-service.html">Customer Service</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                    <li><a href="disclaimer.html">Disclaimer</a></li>
-                    <li><a href="cancellation-payment-policy.html">Cancellation Policy</a></li>
+                    <li><a href="about-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="career.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="customer-service.html"><i class="fas fa-headset"></i> Customer Service</a></li>
                 </ul>
             </div>
-
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, 110058</li>
-                    <li><i class="fas fa-phone"></i> <a href="tel:+918448665087">+91 8448665087</a></li>
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@dreamweavertravels.in">info@dreamweavertravels.in</a></li>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i>Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058 </li>
+                    <li><i class="fas fa-phone"></i>8448665087 </li>
+                    <li><i class="fas fa-envelope"></i> info@dreamweavertravels.in</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/dreamweaver_travels?igsh=ZXo3MGYwb2cwMDl3" target="_blank" class="footer-instagram">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/dreamweaver-travels/" target="_blank" class="footer-linkedin">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
-
+        <div class="footer-privacy">
+            <a href="privacy-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Privacy &amp; Policy
+            </a>
+        </div>
+        <!-- Add this section to your footer, just after the Privacy & Policy link and before the copyright/footer-bottom -->
+        <div class="footer-terms">
+            <a href="terms-conditions.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Terms &amp; Conditions
+            </a>
+        </div>
+        <!-- Add this Disclaimer section in your footer, just after the Terms & Conditions link and before the copyright/footer-bottom -->
+        <div class="footer-disclaimer">
+            <a href="disclaimer.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Disclaimer
+            </a>
+        </div>
+        <!-- Add this Cancellation & Payment Policy section in your footer, just after the Disclaimer link and before the copyright/footer-bottom -->
+        <div class="footer-cancellation">
+            <a href="cancellation-payment-policy.html" style="color:#2596be; text-decoration:underline;" target="_blank">
+                Cancellation &amp; Payment Policy
+            </a>
+        </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 DreamWeaver Travels. All rights reserved.</p>
+            &copy; 2025 DreamWeaver Travels. All rights reserved.
         </div>
     </footer>
     <!-- Add this just before </footer> in your index.html (and other pages if needed) -->
@@ -399,13 +417,35 @@
             <button id="rejectCookie" class="cookie-btn reject">Reject</button>
         </div>
     </div>
-
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/8448665087" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- load single external script (defer for non-blocking) -->
-    <script src="main.js" defer></script>
+    <!-- Chatbot Toggle Button -->
+    <div class="chatbot-toggle" id="chatbot-toggle">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- Chatbot Window -->
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <h3>Chat with us!</h3>
+            <div class="chatbot-header-buttons">
+                <button class="chatbot-clear" id="chatbot-clear-btn" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
+                <button class="chatbot-close" id="chatbot-close">&times;</button>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chat-message bot">Hello! How can I help you? Ask about 'packages', 'contact', or 'offers'.</div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input-field" placeholder="Type a message...">
+            <button id="chatbot-send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <audio id="chatbot-notification-sound" src="notification.mp3" preload="auto" style="display: none;"></audio>
+    <script src="main.js"></script>
 </body>
 </html>
