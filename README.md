@@ -2,55 +2,52 @@
 
 Welcome to the DreamWeaver Travels project! This website is designed to provide users with an engaging platform to explore travel destinations, packages, and services.
 
-## Table of Contents
+## Current Status
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+**Frontend Only:** The project is currently running as a static frontend application. The previous backend has been removed and is currently being rebuilt from scratch.
 
 ## Features
 
-- Beautifully designed homepage showcasing featured travel destinations.
-- Responsive layout that adapts to various screen sizes.
-- Easy navigation through the header component.
-- Informative footer with copyright and additional links.
+-   **Responsive Design:** Fully responsive layout that adapts to mobile, tablet, and desktop screens.
+-   **Interactive UI:**
+    -   **Testimonials Slider:** Auto-playing slider with manual navigation dots.
+    -   **Hero Section:** Video background with a call-to-action.
+    -   **Destinations & Tours:** Grid layouts showcasing various travel locations.
+    -   **Popups:** Contact and Enquiry forms displayed in modal popups.
+-   **Modern Styling:** Custom CSS with animations, hover effects, and a consistent color palette.
 
-## Installation
+## Installation & Usage
 
-To get started with DreamWeaver Travels, follow these steps:
+Since the project is currently frontend-only, you can simply open the HTML files in your browser.
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/DreamWeaver-Travels.git
-   ```
-2. Navigate into the project directory:
-   ```
-   cd DreamWeaver-Travels
-   ```
-3. Install the necessary dependencies:
-   ```
-   npm install
-   ```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/DreamWeaver-Travels.git
+    ```
+2.  **Navigate into the project directory:**
+    ```bash
+    cd DreamWeaver-Travels
+    ```
+3.  **Open `public/index.html` in your web browser.**
 
-## Usage
+    *Note: `npm install` and `npm start` are not currently required as there are no backend dependencies.*
 
-To run the website locally, use the following command:
-```
-npm start
-```
-Open your browser and visit `http://localhost:3000` to view the site.
+## Project Structure
+
+-   `public/`: Contains all frontend assets (HTML, CSS, JS, images).
+    -   `index.html`: Main landing page.
+    -   `styles.css`: Global styles.
+    -   `main.js`: Frontend logic (sliders, modals, etc.).
 
 ## Contributing
 
-We welcome contributions to improve DreamWeaver Travels! Please follow these steps:
+We welcome contributions! Please follow these steps:
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a pull request.
+1.  Fork the repository.
+2.  Create a new branch (`git checkout -b feature/YourFeature`).
+3.  Make your changes and commit them (`git commit -m 'Add some feature'`).
+4.  Push to the branch (`git push origin feature/YourFeature`).
+5.  Open a pull request.
 
 ## License
 
