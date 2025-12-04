@@ -650,19 +650,24 @@ h2 {
 }
 .offers-list {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 32px;
     margin: 0 auto;
     max-width: 1100px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
+
 .offer-card {
+    flex: 1 1 280px; /* Grow, shrink, base width */
+    max-width: 340px;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(230, 167, 0, 0.08);
-    padding: 28px 24px 22px 24px;
-    width: 260px;
-    min-width: 180px;
+    padding: 32px 24px 24px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -672,29 +677,58 @@ h2 {
     position: relative;
     overflow: hidden;
 }
+
 .offer-card i {
-    font-size: 2.2em;
+    font-size: 2.5em;
     color: #e6a700;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     transition: color 0.2s;
 }
+
 .offer-card h3 {
-    font-size: 1.15em;
-    margin-bottom: 10px;
+    font-size: 1.25em;
+    margin-bottom: 12px;
     color: #b88d00;
 }
+
 .offer-card p {
     font-size: 1em;
     color: #555;
+    line-height: 1.5;
 }
+
 .offer-card:hover {
     transform: translateY(-8px) scale(1.05);
     box-shadow: 0 8px 28px rgba(230, 167, 0, 0.18);
     border-color: #e6a700;
     background: #fffde3;
 }
+
 .offer-card:hover i {
     color: #b88d00;
+}
+
+/* Responsive Styles for Offers */
+@media (max-width: 900px) {
+    .offers-list {
+        gap: 24px;
+        padding: 0 16px;
+    }
+    .offer-card {
+        flex: 1 1 100%; /* Stack on smaller tablets/mobile */
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .offers-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    .offer-card {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 /* Top Holiday Packages Section */
@@ -2137,7 +2171,7 @@ nav {
     .tours-list,
     .packages-list,
     .services-list,
-    .offers-list,
+
     .airlines-track {
         grid-template-columns: 1fr; /* Stack items vertically */
         display: grid;
