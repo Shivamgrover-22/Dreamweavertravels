@@ -12,6 +12,7 @@ body {
     color: #333;
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    font-size: 1rem; /* Base font size */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -51,7 +52,7 @@ header {
     margin-bottom: 0;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    max-width: 320px; /* Prevent logo from expanding too much */
+    max-width: 100%; /* Allow logo to fit container */
     overflow: hidden;
 }
 
@@ -63,7 +64,7 @@ header {
 }
 
 .logo span {
-    font-size: 1.05em; /* Smaller text */
+    font-size: 1.05rem; /* Smaller text */
     font-weight: bold;
     white-space: nowrap;
 }
@@ -86,7 +87,7 @@ nav a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 1rem;
     padding: 8px 12px;
     position: relative;
     transition: color 0.3s;
@@ -115,38 +116,7 @@ nav a:hover::after {
 /* Help icon styling removed */
 
 /* Login icon styling for navbar, fixed to the right next to customer service */
-.nav-login-icon {
-    position: fixed;
-    right: 90px; /* Place it to the left of the customer service icon */
-    top: 18px;
-    z-index: 101;
-    display: flex;
-    align-items: center;
-}
-
-.nav-login-icon a {
-    color: #fff;
-    font-size: 1.15em;
-    margin-left: 0;
-    padding: 8px 18px 8px 12px;
-    border-radius: 24px;
-    background: #2596be;
-    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: bold;
-    box-shadow: 0 4px 16px rgba(36, 142, 230, 0.12);
-    text-decoration: none;
-}
-
-.nav-login-icon a:hover,
-.nav-login-icon a:focus {
-    background: #248ee6;
-    color: #ffd700;
-    box-shadow: 0 8px 24px rgba(36, 142, 230, 0.18);
-    outline: none;
-}
+/* Login icon styling removed */
 
 main {
     padding: 40px 20px;
@@ -187,38 +157,21 @@ h2 {
 }
 
 /* Update main-content for even spacing and full width */
+/* Update main-content for even spacing and full width */
 #main-content {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 32px;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: stretch;
     width: 100%;
     padding: 30px 0 30px 0;
     box-sizing: border-box;
-    overflow-x: auto;
-}
-
-/* Optional: Hide scrollbar for a cleaner look */
-#main-content::-webkit-scrollbar {
-    display: none;
 }
 
 /* Destinations Section: Show all cards in a single row, no horizontal scroll, with animation and hover */
-.destinations-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 32px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 32px auto 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: visible; /* No horizontal scroll */
-}
+/* Destinations Section: Responsive Grid Layout handled below */
 
 /* Each card takes equal width and fits in one row */
 .destination {
@@ -302,7 +255,7 @@ h2 {
     flex: 1 1 300px; /* Grow, shrink, base width */
     max-width: 340px;
     height: auto;
-    min-height: 320px;
+    min-height: auto; /* Let content dictate height */
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(36, 142, 230, 0.08);
@@ -317,7 +270,7 @@ h2 {
 }
 
 .destination p {
-    font-size: 1em;
+    font-size: 1rem;
     color: #555;
     text-align: center;
 }
@@ -412,7 +365,7 @@ h2 {
 }
 
 .hero-overlay h1 {
-    font-size: 4em;
+    font-size: 4rem;
     font-weight: 700;
     margin-bottom: 16px;
     text-shadow: 0 4px 12px rgba(0,0,0,0.4);
@@ -422,7 +375,7 @@ h2 {
 }
 
 .hero-overlay p {
-    font-size: 1.8em;
+    font-size: 1.8rem;
     margin-bottom: 32px;
     font-weight: 300;
     text-shadow: 0 2px 8px rgba(0,0,0,0.4);
