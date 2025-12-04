@@ -58,27 +58,27 @@
     <main id="main-content">
         <div class="destinations-list">
             <div class="destination">
-                <img src="paris.jpg" alt="Paris">
+                <img src="paris.jpg" alt="Paris" loading="lazy">
                 <h3>Paris</h3>
                 <p>The city of lights awaits you!</p>
             </div>
             <div class="destination">
-                <img src="rome.jpg" alt="Rome">
+                <img src="rome.jpg" alt="Rome" loading="lazy">
                 <h3>Rome</h3>
                 <p>Discover ancient history and vibrant culture in Italy's capital.</p>
             </div>
             <div class="destination">
-                <img src="tokyo.jpg" alt="Tokyo">
+                <img src="tokyo.jpg" alt="Tokyo" loading="lazy">
                 <h3>Tokyo</h3>
                 <p>Experience the blend of tradition and technology in Japan's metropolis.</p>
             </div>
             <div class="destination">
-                <img src="newyork.jpg" alt="New York">
+                <img src="newyork.jpg" alt="New York" loading="lazy">
                 <h3>New York</h3>
                 <p>The city that never sleeps, full of iconic sights and energy.</p>
             </div>
             <div class="destination">
-                <img src="sydney.jpg" alt="Sydney">
+                <img src="sydney.jpg" alt="Sydney" loading="lazy">
                 <h3>Sydney</h3>
                 <p>Enjoy the stunning harbor, beaches, and the famous Opera House.</p>
             </div>
@@ -144,25 +144,25 @@
         </div>
         <div class="packages-list" id="international-packages">
             <div class="package-card">
-                <img src="maldives.jpg" alt="Maldives">
+                <img src="maldives.jpg" alt="Maldives" loading="lazy">
                 <h3>Maldives Getaway</h3>
                 <p>5 Nights / 6 Days<br>Luxury resort stay, water sports, and island tours.</p>
                 <span class="package-price">From ₹85475</span>
             </div>
             <div class="package-card">
-                <img src="Switzerland.jpg" alt="Switzerland">
+                <img src="Switzerland.jpg" alt="Switzerland" loading="lazy">
                 <h3>Swiss Alps Adventure</h3>
                 <p>7 Nights / 8 Days<br>Scenic train rides, mountain excursions, and city tours.</p>
                 <span class="package-price">From ₹128256</span>
             </div>
             <div class="package-card">
-                <img src="bali.jpg" alt="Bali">
+                <img src="bali.jpg" alt="Bali" loading="lazy">
                 <h3>Bali Bliss</h3>
                 <p>6 Nights / 7 Days<br>Beach resorts, temple visits, and cultural experiences.</p>
                 <span class="package-price">From ₹68363</span>
             </div>
             <div class="package-card">
-                <img src="egypt.jpg" alt="Egypt">
+                <img src="egypt.jpg" alt="Egypt" loading="lazy">
                 <h3>Egyptian Wonders</h3>
                 <p>8 Nights / 9 Days<br>Pyramids, Nile cruise, and ancient history tours.</p>
                 <span class="package-price">From ₹102587</span>
@@ -170,19 +170,19 @@
         </div>
         <div class="packages-list" id="domestic-packages" style="display:none;">
             <div class="package-card">
-                <img src="goa.jpg" alt="Goa">
+                <img src="goa.jpg" alt="Goa" loading="lazy">
                 <h3>Goa Beach Escape</h3>
                 <p>4 Nights / 5 Days<br>Sun, sand, and sea at India's top beach destination.</p>
                 <span class="package-price">From ₹12,999</span>
             </div>
             <div class="package-card">
-                <img src="manali.jpg" alt="Manali">
+                <img src="manali.jpg" alt="Manali" loading="lazy">
                 <h3>Manali Adventure</h3>
                 <p>5 Nights / 6 Days<br>Snow-capped mountains, adventure sports, and scenic beauty.</p>
                 <span class="package-price">From ₹15,499</span>
             </div>
             <div class="package-card">
-                <img src="kerala.jpg" alt="Kerala">
+                <img src="kerala.jpg" alt="Kerala" loading="lazy">
                 <h3>Kerala Backwaters</h3>
                 <p>6 Nights / 7 Days<br>Houseboat stay, lush greenery, and tranquil waters.</p>
                 <span class="package-price">From ₹18,999</span>
@@ -238,7 +238,7 @@
                         DreamWeaver Travels made our honeymoon in Bali unforgettable! The hotel and tours were perfectly arranged.
                     </div>
                     <div class="testimonial-user">
-                        <img src="user1.jpg" alt="User 1">
+                        <img src="user1.jpg" alt="User 1" loading="lazy">
                         <span>Priya Sharma</span>
                     </div>
                 </div>
@@ -248,7 +248,7 @@
                         Excellent visa support and quick responses. Our Switzerland trip was smooth and hassle-free. Highly recommended!
                     </div>
                     <div class="testimonial-user">
-                        <img src="user2.jpg" alt="User 2">
+                        <img src="user2.jpg" alt="User 2" loading="lazy">
                         <span>Rahul Mehta</span>
                     </div>
                 </div>
@@ -258,7 +258,7 @@
                         Great deals and friendly staff. The group offer saved us a lot on our family holiday to Paris!
                     </div>
                     <div class="testimonial-user">
-                        <img src="user3.jpg" alt="User 3">
+                        <img src="user3.jpg" alt="User 3" loading="lazy">
                         <span>Anita Verma</span>
                     </div>
                 </div>
@@ -272,10 +272,10 @@
     </section>
 
     <!-- Contact Popup Modal (hidden by default) -->
-    <div id="contact-modal" class="contact-modal" style="display:none;">
+    <div id="contact-modal" class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" style="display:none;">
         <div class="contact-modal-content">
             <span class="contact-modal-close" title="Close">&times;</span>
-            <h2>Contact Details</h2>
+            <h2 id="contact-modal-title">Contact Details</h2>
             <div class="contact-details">
                 <p><i class="fas fa-map-marker-alt"></i> Jaina Tower II, 204, District Centre, Janakpuri, New Delhi, Delhi 110058</p>
                 <p><i class="fas fa-phone"></i> +91 8448665087</p>
@@ -289,19 +289,19 @@
             </div>
             <h3>Send Us a Message</h3>
             <form class="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required>
+                <textarea name="message" rows="4" placeholder="Your Message" aria-label="Your Message" required></textarea>
                 <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
             </form>
         </div>
     </div>
 
     <!-- Enquiry Popup Modal (New) -->
-    <div id="enquiry-modal" class="enquiry-modal" style="display:none;">
+    <div id="enquiry-modal" class="enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiry-modal-title" style="display:none;">
         <div class="enquiry-modal-content">
             <span class="enquiry-modal-close" title="Close">&times;</span>
-            <h2>Plan Your Dream Trip</h2>
+            <h2 id="enquiry-modal-title">Plan Your Dream Trip</h2>
             <p style="text-align: center; color: #666; margin-bottom: 1.5rem;">Tell us what you're looking for!</p>
             <form id="enquiryFormPopup" class="enquiry-form-popup">
                 <div class="form-group">
@@ -332,7 +332,7 @@
             <h2>Get Updates &amp; More</h2>
             <p>Subscribe to receive travel inspiration, tips, and exclusive offers directly to your inbox!</p>
             <form class="get-updates-form" action="#" method="post">
-                <input type="email" name="email" placeholder="Enter your email address" required>
+                <input type="email" name="email" placeholder="Enter your email address" aria-label="Email address for updates" required>
                 <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
             </form>
         </div>
@@ -409,3 +409,5 @@
     <script src="main.js" defer></script>
 </body>
 </html>
+
+

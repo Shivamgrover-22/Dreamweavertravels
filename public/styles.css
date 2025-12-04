@@ -563,14 +563,12 @@ h2 {
 .services-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 32px;
     margin: 0 auto;
     max-width: 1100px;
-    /* Remove horizontal scroll and allow wrapping */
-    overflow-x: visible;
-    flex-wrap: wrap;
+    padding: 0 20px;
 }
 
 /* Hide scrollbar if any remains (for safety) */
@@ -587,8 +585,9 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(36, 142, 230, 0.08);
     padding: 28px 24px 22px 24px;
-    width: 230px;
-    min-width: 180px;
+    flex: 1 1 230px;
+    max-width: 300px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -750,14 +749,16 @@ h2 {
     gap: 32px;
     margin: 0 auto;
     max-width: 1200px;
+    padding: 0 20px;
 }
 .package-card {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(36, 142, 230, 0.08);
     padding: 0 0 18px 0;
-    width: 260px;
-    min-width: 180px;
+    flex: 1 1 260px;
+    max-width: 340px;
+    min-width: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -885,12 +886,16 @@ h2 {
     align-items: center;
     justify-content: center;
     position: relative;
-    max-width: 400px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto 18px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .testimonials-list {
-    width: 340px;
+    width: 100%;
+    max-width: 600px;
     min-height: 220px;
     display: flex;
     position: relative;
@@ -2290,8 +2295,8 @@ img {
 }
 
 .footer-column {
-    flex: 1;
-    min-width: 250px;
+    flex: 1 1 200px;
+    min-width: 200px;
 }
 
 .footer-logo {
