@@ -367,6 +367,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #35424a; /* Fallback color if video fails */
 }
 
 .hero-video {
