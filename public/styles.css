@@ -356,12 +356,13 @@ h2 {
 }
 
 /* HERO SECTION RESPONSIVE STYLES */
+/* HERO SECTION RESPONSIVE STYLES */
 .hero {
     position: relative;
     width: 100vw;
     max-width: 100%;
-    height: 520px;
-    min-height: 260px;
+    height: 600px; /* Increased height for more impact */
+    min-height: 400px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -372,13 +373,13 @@ h2 {
     width: 100vw;
     max-width: 100%;
     height: 100%;
-    min-height: 260px;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
     background: #222;
+    filter: brightness(0.9); /* Slightly darken video for better text contrast */
 }
 
 .hero-overlay {
@@ -387,22 +388,45 @@ h2 {
     color: #fff;
     text-align: center;
     width: 100%;
-    background: rgba(53, 66, 74, 0.3);
-    padding: 40px 0;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%); /* Modern gradient */
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(2px); /* Subtle blur for depth */
+}
+
+/* Animations for Hero Content */
+@keyframes fadeInUpHero {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-overlay h1 {
-    font-size: 3.2em;
+    font-size: 4em;
+    font-weight: 700;
     margin-bottom: 16px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+    animation: fadeInUpHero 1s ease-out forwards;
+    opacity: 0; /* Start hidden */
 }
 
 .hero-overlay p {
-    font-size: 1.7em;
-    margin-bottom: 24px;
+    font-size: 1.8em;
+    margin-bottom: 32px;
+    font-weight: 300;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    animation: fadeInUpHero 1s ease-out 0.3s forwards; /* Delay */
+    opacity: 0; /* Start hidden */
 }
 
 .hero-overlay h1,
@@ -417,29 +441,29 @@ h2 {
 .hero-overlay:has(h1:hover) p,
 .hero-overlay:has(p:hover) h1,
 .hero-overlay:has(p:hover) p {
-    color: #6f9ee4;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    transform: scale(1.05);
+    text-shadow: 0 4px 16px rgba(0,0,0,0.6);
 }
 
 .book-now-btn {
     display: inline-block;
-    margin-top: 28px;
-    padding: 16px 38px;
-    font-size: 1.2em;
+    margin-top: 10px;
+    padding: 18px 42px;
+    font-size: 1.3em;
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(90deg, #2596be 0%, #248ee6 100%);
+    background: linear-gradient(135deg, #2596be 0%, #248ee6 100%);
     border: none;
     border-radius: 50px;
-    box-shadow: 0 6px 24px rgba(36, 142, 230, 0.25), 0 1.5px 0 #1a5e7a inset;
+    box-shadow: 0 8px 24px rgba(36, 142, 230, 0.3), 0 1px 0 rgba(255,255,255,0.2) inset;
     cursor: pointer;
     perspective: 600px;
-    transition: transform 0.25s cubic-bezier(.25,1.5,.5,1), box-shadow 0.25s, background 0.25s;
+    transition: transform 0.3s cubic-bezier(.25,1.5,.5,1), box-shadow 0.3s, background 0.3s;
     text-decoration: none;
     letter-spacing: 1px;
     position: relative;
     overflow: hidden;
+    animation: fadeInUpHero 1s ease-out 0.6s forwards; /* Delay */
+    opacity: 0; /* Start hidden */
 }
 
 .book-now-btn::before {
@@ -1101,21 +1125,21 @@ h2 {
 /* Responsive styles for tablets */
 @media (max-width: 1024px) {
     .hero {
-        height: 380px;
-        min-height: 200px;
+        height: 500px; /* Taller for tablets */
+        min-height: 300px;
     }
     .hero-video {
         height: 100%;
-        min-height: 200px;
+        min-height: 300px;
     }
     .hero-overlay {
-        padding: 24px 0;
+        padding: 30px 20px;
     }
     .hero-overlay h1 {
-        font-size: 2.2em;
+        font-size: 3em; /* Larger font for tablets */
     }
     .hero-overlay p {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 }
 
@@ -1147,17 +1171,17 @@ h2 {
         height: 120px;
     }
     .hero {
-        height: 340px;
+        height: 450px; /* Taller for mobile */
     }
     .hero-overlay h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .hero-overlay p {
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
     .book-now-btn {
-        padding: 12px 22px;
-        font-size: 1em;
+        padding: 14px 30px;
+        font-size: 1.1em;
     }
 }
 
@@ -1208,27 +1232,27 @@ h2 {
         font-size: 1em;
     }
     .hero {
-        height: 180px;
-        min-height: 120px;
+        height: 400px; /* Good height for small mobile */
+        min-height: 250px;
     }
     .hero-video {
         height: 100%;
-        min-height: 120px;
+        min-height: 250px;
     }
     .hero-overlay {
-        padding: 10px 0;
+        padding: 20px 10px;
     }
     .hero-overlay h1 {
-        font-size: 1em;
-        margin-bottom: 8px;
+        font-size: 2em;
+        margin-bottom: 10px;
     }
     .hero-overlay p {
-        font-size: 0.85em;
-        margin-bottom: 12px;
+        font-size: 1.1em;
+        margin-bottom: 16px;
     }
     .book-now-btn {
-        padding: 7px 12px;
-        font-size: 0.9em;
+        padding: 12px 24px;
+        font-size: 1em;
     }
 }
 
